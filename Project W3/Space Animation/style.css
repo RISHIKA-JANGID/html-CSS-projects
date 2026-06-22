@@ -1,0 +1,178 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+}
+
+.space{
+    width:100vw;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+
+    background:url("images/space.webp");
+    background-size:cover;
+    background-position:center;
+
+    animation:spaceMove 30s linear infinite;
+}
+
+@keyframes spaceMove{
+    from{
+        background-position:0 0;
+    }
+    to{
+        background-position:-3000px 0;
+    }
+}
+
+.rocket{
+    position:absolute;
+
+    width:320px;
+
+    left:-350px;
+    top:45%;
+
+    z-index:5;
+
+    filter:
+    drop-shadow(0 0 15px orange)
+    drop-shadow(0 0 30px yellow);
+
+    animation:rocketJourney 13s linear forwards;
+}
+
+
+@keyframes rocketJourney{
+
+    0%{
+        left:-350px;
+        top:45%;
+        transform:rotate(20deg);
+    }
+
+    10%{
+        left:-150px;
+        top:35%;
+        transform:rotate(20deg);
+    }
+
+    20%{
+        left:5%;
+        top:50%;
+        transform:rotate(20deg);
+    }
+
+    30%{
+        left:20%;
+        top:35%;
+        transform:rotate(20deg);
+    }
+
+    40%{
+        left:35%;
+        top:50%;
+        transform:rotate(20deg);
+    }
+
+    50%{
+        left:50%;
+        top:35%;
+        transform:rotate(20deg);
+    }
+
+    60%{
+        left:60%;
+        top:50%;
+        transform:rotate(20deg);
+    }
+
+    70%{
+        left:70%;
+        top:40%;
+        transform:rotate(20deg);
+    }
+
+    80%{
+        left:75%;
+        top:38%;
+        transform:rotate(20deg);
+    }
+
+    90%{
+        left:78%;
+        top:28%;
+        transform:rotate(-45deg);
+    }
+
+    100%{
+        left:110%;
+        top:-120%;
+        transform:rotate(-45deg);
+    }
+}
+
+.astronaut{
+    position:absolute;
+
+    width:180px;
+
+    left:-300px;
+    top:80%;
+
+    z-index:6;
+
+    animation:
+    astronautCome 2s 7s forwards,
+    astronautEnter 2s 9s forwards;
+}
+
+@keyframes astronautCome{
+
+    from{
+        left:-300px;
+        top:80%;
+        opacity:1;
+    }
+
+    to{
+        left:68%;
+        top:45%;
+        opacity:1;
+    }
+}
+
+@keyframes astronautEnter{
+
+    from{
+        left:68%;
+        top:45%;
+        transform:scale(1);
+        opacity:1;
+    }
+
+    to{
+        left:79%;
+        top:34%;
+        transform:scale(0);
+        opacity:0;
+    }
+}
+
+.space::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at center,
+    transparent 60%,
+    rgba(255,255,255,.05));
+
+    pointer-events:none;
+}
